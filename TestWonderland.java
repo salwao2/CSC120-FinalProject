@@ -9,10 +9,7 @@ public class TestWonderland {
         
         WeddingScene weddingScene = new WeddingScene(playerName);
         weddingScene.start();
-        
-        Underland underland = new Underland(playerName);
-        underland.start();
-        
+
         scanner.close();
     }
 }

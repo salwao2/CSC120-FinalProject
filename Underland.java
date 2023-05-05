@@ -1,110 +1,61 @@
-
 import java.util.Scanner;
 
 public class Underland {
     private WhiteRabbit whiteRabbit;
     private tweedleTwins tweedleTwins;
-    private absolemCaterpillar absolem;
-    private String playerName;
-    
-    
+    private absolemCaterpillar absolemCaterpillar;
+    private boolean hasFollowedTweedles;
+
     public Underland(String playerName) {
-        this.playerName = playerName;
-        System.out.println("You crawl through the small door and enter a beautiful garden.");
-        this.whiteRabbit = new WhiteRabbit();
-        whiteRabbit.greet(playerName);
+        this.whiteRabbit = new WhiteRabbit(playerName);
         this.tweedleTwins = new tweedleTwins("Tweedledum", "Tweedledee");
-        tweedleTwins.greet();
-        this.absolem = new absolemCaterpillar();
+        this.absolemCaterpillar = new absolemCaterpillar(playerName); // Create an instance of the Absolem class with the playerName
+        this.hasFollowedTweedles = false;
     }
 
     public void start() {
         Scanner scanner = new Scanner(System.in);
-        String choice;
+        String choice = "";
         
-        System.out.println("Do you want to follow Tweedle Twins and meet Absolem the Caterpillar? (yes/no)");
-        choice = scanner.nextLine().toLowerCase();
+        // Call the greet method of the WhiteRabbit class
+        whiteRabbit.greet();
+        // Call the greet method of the TweedleTwins class
+        tweedleTwins.greet();
         
         while (!choice.equals("yes") && !choice.equals("no")) {
-            System.out.println("I'm sorry, I didn't understand. Please answer 'yes' or 'no'.");
+            System.out.println("Do you want to follow Tweedle Twins and the White Rabbit to meet Absolem the Caterpillar? (yes/no)");
             choice = scanner.nextLine().toLowerCase();
+        
+            if (!choice.equals("yes") && !choice.equals("no")) {
+                System.out.println("I'm sorry, I didn't understand. Please answer 'yes' or 'no'.");
+            }
         }
         
         if (choice.equals("yes")) {
-            System.out.println("You follow Tweedle Twins and meet Absolem the Caterpillar.");
-            absolem.show("calendar");
+            System.out.println("\nYou follow Tweedle Twins through the thorny woods to meet Absolem the Caterpillar.");
+            tweedleTwins.leadToAbsolem();
+            absolemCaterpillar.greet(); // Call the greet method of the Absolem class
+            absolemCaterpillar.promptOne(); // Call the promptOne method of the Absolem class
+            absolemCaterpillar.show("calendar"); // Call the show method of the Absolem class with the "calendar" argument
+            absolemCaterpillar.askSaveUnderland(); // Call the askSaveUnderland method of the Absolem class
+            hasFollowedTweedles = true;
         } else {
-            System.out.println("Tweedle Twins: Alice, you must come with us to see Absolem. You're in danger!");
-            
+            System.out.println("Tweedle Twins: " + absolemCaterpillar.playerName + ", you must come with us to see Absolem. You're in danger!");
+    
             while (!choice.equals("yes")) {
-                System.out.println("Do you want to follow Tweedle Twins and meet Absolem the Caterpillar now? (yes/no)");
+                System.out.println("Will you come with us to see Absolem the Caterpillar? (yes/no)");
                 choice = scanner.nextLine().toLowerCase();
-                
-                while (!choice.equals("yes") && !choice.equals("no")) {
+    
+                if (!choice.equals("yes") && !choice.equals("no")) {
                     System.out.println("I'm sorry, I didn't understand. Please answer 'yes' or 'no'.");
-                    choice = scanner.nextLine().toLowerCase();
+                } else if (choice.equals("no")) {
+                    System.out.println("Tweedle Twins: Please reconsider. You're in danger, it's important that you see Absolem.");
                 }
-                
-                if (choice.equals("yes")) {
-                    System.out.println("You follow Tweedle Twins and meet Absolem the Caterpillar.");
-                    absolem.show("calendar");
-                        // Prompt the player to respond to the message on the calendar
-                    System.out.println("Absolem: Will you help us defeat the Jabberwocky on Frabjous Day? (yes/no)");
-                    choice = scanner.nextLine().toLowerCase();
-
-                    while (!choice.equals("yes") && !choice.equals("no")) {
-                        System.out.println("I'm sorry, I didn't understand. Please answer 'yes' or 'no'.");
-                        choice = scanner.nextLine().toLowerCase();
-                    }
-
-                    if (choice.equals("yes")) {
-                        System.out.println("Absolem: Thank you, " + playerName + ". We need your help to save Underland.");
-                    } else {
-                        System.out.println("Absolem: I see. It is your choice to make. But if you do not help us, Underland will be lost.");
-                    }
-                } else {
-                    System.out.println("Tweedle Twins: Alice, you must come with us to see Absolem. You're in danger!");
-
-                    while (!choice.equals("yes")) {
-                        System.out.println("Do you want to follow Tweedle Twins and meet Absolem the Caterpillar now? (yes/no)");
-                        choice = scanner.nextLine().toLowerCase();
-
-                        while (!choice.equals("yes") && !choice.equals("no")) {
-                            System.out.println("I'm sorry, I didn't understand. Please answer 'yes' or 'no'.");
-                            choice = scanner.nextLine().toLowerCase();
-                        }
-
-                        if (choice.equals("yes")) {
-                            System.out.println("You follow Tweedle Twins and meet Absolem the Caterpillar.");
-                            absolem.show("calendar");
-
-                            // Prompt the player to respond to the message on the calendar
-                            System.out.println("Absolem: Will you help us defeat the Jabberwocky on Frabjous Day? (yes/no)");
-                            choice = scanner.nextLine().toLowerCase().trim();
-
-
-                            while (!choice.equals("yes") && !choice.equals("no")) {
-                                System.out.println("I'm sorry, I didn't understand. Please answer 'yes' or 'no'.");
-                                choice = scanner.nextLine().toLowerCase();
-                            }
-                            
-
-                            if (choice.equals("yes")) {
-                                System.out.println("Absolem: Thank you, " + playerName + ". We need your help to save Underland.");
-                            } else {
-                                System.out.println("Absolem: Okay. It is your choice to make. But if you do not help us, Underland will be lost.");
-                            }
-                        } else {
-                            System.out.println("Tweedle Twins:" + playerName + ", please come with us. We must keep you safe!");
-                        }
-                        
-
-        }
-    }
-    scanner.close();         
             }
         }
+        scanner.close();
     }
 }
 
 
+    
