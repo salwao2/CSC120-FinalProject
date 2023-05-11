@@ -5,11 +5,9 @@ public class tweedleTwins {
     private String name1;
     private String name2;
 
-
     public tweedleTwins(String name1, String name2) {
         this.name1 = name1;
         this.name2 = name2;
-
     }
 
     public void greet() {
@@ -22,6 +20,7 @@ public class tweedleTwins {
         Scanner scanner = new Scanner(System.in);
         System.out.println("\nWhat do you want to do?\n1. Ask the twins if they're sure this is the right way\n2. Trust the twins and keep following behind them");
         int choice = scanner.nextInt();
+        
         if (choice == 1) {
             System.out.println("\nYou ask the twins if they're sure this is the right way.");
             System.out.println("\nTweedle twins: Yes, he's right up here beyond the fog");
@@ -29,11 +28,14 @@ public class tweedleTwins {
         else if (choice == 2) {
             System.out.println("\nYou decide to trust the twins and keep following behind them.");
         }
+        
         else {
             System.out.println("\nInvalid choice. Please enter either 1 or 2.");
             return;
         }
+        
         System.out.println("\nBeyond the fog, you see Absolem the caterpillar blowing smoke out of a hookah.");
+
     }
     
 }

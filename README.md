@@ -1,18 +1,17 @@
 # CSC120-FinalProject
 
-## Deliverables:
- - Your final codebase
- - Your revised annotated architecture diagram
- - Design justification (including a brief discussion of at least one alternative you considered)
- - A map of your game's layout (if applicable)
- - `cheatsheet.md`
- - Completed `rubric.md`
+* You can play the game by using the TestWonderland.java file
+## Design Justification
+
+ I designed my game to be a "Choose Your Own Adventure Game" inspired by Alice in Wonderland. I allow the player to choose different options which lead to different paths and outcomes. Sometimes the game will ask the player to choose a number of an option, or insert text to move in a certain direction (north, east, etc.) or insert text to grab a specific item (flowers, cupcake, etc.). I designed the game in this manner to allow some variety in the different inputs the user can enter. At first I was only going to allow the player to pick numbers for an associated outcome, however, I decided not to because I felt that the game became monotonous and dull when the player was just inputting numbers. I also considered the functionality of an open map and allowing the player to freely move around the world. I think this would have made the game super exciting to allow the player to freely roam, however, I chose not to implement that functionality because my game relies on the player meeting several different NPC characters (Mad Hatter, White Rabbit, Cheshire Cat, etc.) in a specific sequence in order to make it to the end of the game. It would not have made sense to allow the player to walk into different scenes such as the tea party scene, or meet the Cheshire Cat out of order, they had to occur in a specific sequence. Overall, my game allows players to control their movement, has multiple paths and outcomes, allows the player to return back home at various points of the game, and also has restiricted access in certain scenes, for example, the rabbit hole scene.
+
+ P.S. I know there are scanner issues with some of the files, I purposefully did not close the scanners.
   
-## Additional Reflection Questions
- - What was your **overall approach** to tackling this project?
- - What **new thing(s)** did you learn / figure out in completing this project?
- - Is there anything that you wish you had **implemented differently**?
- - If you had **unlimited time**, what additional features would you implement?
- - What was the most helpful **piece of feedback** you received while working on your project? Who gave it to you?
- - If you could go back in time and give your past self some **advice** about this project, what hints would you give?
- - _If you worked with a team:_ please comment on how your **team dynamics** influenced your experience working on this project.
+## Reflection Questions
+ - In order to tackle this project, I had to do some research on Alice in Wonderland since my game was inspired by the story. I watched the 2010 movie adaption of Alice in Wonderland and decided to base my game off of that. I decided it would make sense to create different classes for important scenes (rabbit hole scene, tea party scene, battlefield scene, etc.) and also classes for some of the main characters that the player encounters and interacts with (Mad Hatter, Tweedle Twins, White Queen, etc.). This was my overallt approach to tackling this project.
+ - A new skill that I learned during this project is how to connect various classes. This was an important factor in my game because I had to connect certain scenes at different instances. For example, when the player retrieves the Vorpal Sword and has it in their inventory, then that starts the battlefield scene. I had to execute similar functionalities throughout my entire game and figure out ways to tie all the scenese together. It got somewhat complicated when creating different paths and having to use if statements to start different scenes based on the players response. 
+ - I recognize that my game has a lot of print statements that narrates the story and keeps the player informed about their current setting. However, I wish the player had more freedom at times. Maybe I could have allowed for an "open world" within a scene so that a player can roam around a specfic scene even if it's not fully an open world. I feel as though the print statements don't allow the player to explore the scene for themselves, but rather explains the scene to them.
+ - As mentuoned previously, if I had unlimited time I would have allowed the player to have more freedom by implementing an open world feature. Maybe I could have let the player freely roam around and meet the different NPCs which would have given hints to the player on how to find the Vorpal Sword and how to defeat the Jabberwocky. 
+ - The most helpful feedback I got was including functionality to restrict access to certain scenes. This led me to change the rabbit hole scene because initially you just need to choose the "Eat Me" option to grow small and enter Underland. However, I made it a little more difficult by making the player retrieve the key first and then they need to find a way to shrink themselves to get through the small door into Underland.
+ - I would tell myself to start earlier on the project and to work on it everyday even if just for a little bit. In my experience, I thought I was on the right path and I had all my classes completed in time. However, when testing out the game I encountered several bugs that took me while to fix. So I would advise my past self to consider the time it takes to fix bugs even if you think you're done with coding all the classes and main functionalities. 
+ - I worked by myself.

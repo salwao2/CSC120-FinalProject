@@ -5,10 +5,12 @@ public class RabbitHoleScene {
     private Scanner scanner;
     private boolean hasKey;
 
+
     public RabbitHoleScene(String playerName) {
         this.playerName = playerName;
         this.scanner = new Scanner(System.in);
         this.hasKey = false;
+
     }
 
     public void start() {

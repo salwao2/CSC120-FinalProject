@@ -27,7 +27,7 @@ public class absolemCaterpillar {
 
     public void show(String item) {
         if (item.equals("calendar")) {
-            System.out.println("\nYou may want to take a look at this, it's written in the calendar. On Frabjous Day, the White Queen will finally rule Underland again when , " + playerName + ", slays the Jabberwock.");
+            System.out.println("\nYou may want to take a look at this, it's written in the calendar. On Frabjous Day, the White Queen will finally rule Underland again when you slay the Jabberwock.");
             System.out.println("+---------------+---------------+---------------+");
             System.out.println("|  Horunvendush |   Griblig Day |  Frabjous Day |");
             System.out.println("+---------------+---------------+---------------+");
@@ -77,15 +77,15 @@ public class absolemCaterpillar {
                 }
             }
 
-            System.out.println("You head towards the east and soon encounter the Cheshire Cat.");
-            CheshireCat cheshireCat = new CheshireCat();
+            System.out.println("\nYou head towards the east and soon encounter the Cheshire Cat.");
+            CheshireCat cheshireCat = new CheshireCat(playerName);
             cheshireCat.greetPlayer();
             cheshireCat.givedirections();
 
         
         } else if (option == 2) {
             System.out.println("\nAbsolem: Very well, " + playerName + ". You are free to go.");
-            System.out.println("Absolem disappears beyond the smoke and the White Rabbit and Tweedle Twins leave Alice alone in the forest mumbling, 'See, I told you we had the wrong " + playerName + ".\n");
+            System.out.println("Absolem disappears beyond the smoke and the White Rabbit and Tweedle Twins leave Alice alone in the forest mumbling, 'See, I told you we had the wrong " + playerName + "'.\n");
             System.out.println("Alone in the forest, you hear a slight rumbling.");
             System.out.println("1. Run back to the entrance and return home.");
             System.out.println("2. Stay and wait to see what it is.");
@@ -96,7 +96,7 @@ public class absolemCaterpillar {
                 System.out.println("\nYou run back to the entrance and return home. However, you have this lingering feeling of sadness as you didn't save Underland.");
                 System.out.println("GAME OVER");
             } else if (option == 2) {
-                System.out.println("\nThe Red Queen's army appears with the large Bandersnatch beast. You try your best to run but without your friends to help you, you fail.");
+                System.out.println("\nThe Red Queen's army appears with the large Bandersnatch beast. You try your best to run, but without your friends to help you, you fail.");
                 System.out.println("GAME OVER");
             } else {
                 System.out.println("\nI'm sorry, " + playerName + ". That's not a valid choice.");
@@ -104,5 +104,8 @@ public class absolemCaterpillar {
         } else {
             System.out.println("\nAbsolem: I'm sorry, " + playerName + ". That's not a valid choice.");
         }
+
+        scanner.close();
+        
     } 
 }
